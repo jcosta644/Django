@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<h1>Subjects</h1>
+
+<table border="1">
+<thead>
+    <tr>
+        <th>Name</th>
+        <th>Level</th>
+        <th>Area</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for subject in object_list %}
+        <tr>
+            <td>{{ subject.nameSubject }}</td>
+            <td>{{ subject.levelSubject }}</td>
+            <td>{{ subject.areaSubject }}</td>
+            <td><a href="{% url "subject_view" subject.id %}">View</a></td>
+            <td><a href="{% url "subject_update" subject.id %}">Edit</a></td>
+            <td><a href="{% url "subject_delete" subject.id %}">Delete</a></td>
+        </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "subject_create" %}">Create</a>
+</html>
